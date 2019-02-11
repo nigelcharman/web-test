@@ -1,12 +1,15 @@
 podTemplate(label: 'java',
         containers: [
-                containerTemplate(name: 'chrome', image: 'selenium/standalone-chrome:3.14', ttyEnabled: true, command: 'cat')
+                containerTemplate(name: 'jdk', image: 'openjdk:8-jdk', ttyEnabled: true, command: 'cat')
         ]) {
     node("java"){
         checkout scm
-        container("chrome") {
+        container("jdk") {
             stage('Test') {
-                sh './gradlew test'
+                sh '''wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb;
+                      sudo dpkg -i google-chrome-stable_current_amd64.deb;
+                      ./gradlew test
+                   '''    
             }
         }
     }
