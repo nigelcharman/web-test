@@ -1,6 +1,6 @@
 podTemplate(label: 'java',
         containers: [
-                containerTemplate(name: 'chrome', image: 'resultadosdigitais/google-chrome', ttyEnabled: true, command: 'cat')
+                containerTemplate(name: 'chrome', image: 'selenoid/chrome', ttyEnabled: true, command: 'cat')
         ]) {
     node("java"){
         checkout scm
