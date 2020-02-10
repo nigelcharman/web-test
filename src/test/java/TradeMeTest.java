@@ -38,6 +38,6 @@ public class TradeMeTest {
     public void printTotal() throws Exception {
         resultsPage = mainPage.searchFor("gold");
         String totalCount = resultsPage.getTotalResultCount();
-        assertEquals("59", totalCount);
+        assertEquals("35", totalCount);
     }
 }
