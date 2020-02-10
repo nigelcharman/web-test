@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import web.tradeMe.MainPage;
 import web.tradeMe.ResultsPage;
 
@@ -23,7 +24,9 @@ public class TradeMeTest {
 
     @Before
     public void setupBrowser() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         mainPage = new MainPage(driver);
     }
 
