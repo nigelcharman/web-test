@@ -17,3 +17,11 @@ dependencies {
                 'junit:junit:4.12',
                 'org.testcontainers:selenium:1.12.5'
 }
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        showStandardStreams = true
+    }
+}
+
