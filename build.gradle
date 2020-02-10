@@ -14,8 +14,7 @@ repositories {
 dependencies {
     testCompile 'org.seleniumhq.selenium:selenium-java:3.+',
                 'io.github.bonigarcia:webdrivermanager:3.3.0',
-                'junit:junit:4.12',
-                'org.testcontainers:selenium:1.12.5'
+                'junit:junit:4.12'
 }
 
 test {
@@ -24,6 +23,3 @@ test {
         showStandardStreams = true
     }
 }
-
-gradle.startParameter.showStacktrace = org.gradle.api.logging.configuration.ShowStacktrace.ALWAYS
-
