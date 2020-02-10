@@ -18,7 +18,7 @@ public class TradeMeTest {
     @Rule
     public BrowserWebDriverContainer chrome =
             new BrowserWebDriverContainer()
-                    .withCapabilities(new ChromeOptions());
+                    .withCapabilities(new ChromeOptions().addArguments("--headless"));
 
     @BeforeClass
     public static void setupClass() {
@@ -29,6 +29,8 @@ public class TradeMeTest {
     public void setupBrowser() {
         driver = chrome.getWebDriver();
 //        driver = new ChromeDriver();
+        ChromeOptions remoteOptions = new ChromeOptions();
+
         mainPage = new MainPage(driver);
     }
 
