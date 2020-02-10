@@ -6,7 +6,7 @@ podTemplate(label: 'java',
         checkout scm
         container("chrome") {
             stage('Test') {
-                sh './gradlew test'
+                sh './gradlew test --tests *TradeMeTest'
             }
         }
     }
