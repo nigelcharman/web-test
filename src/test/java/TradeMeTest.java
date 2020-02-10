@@ -1,10 +1,9 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testcontainers.containers.BrowserWebDriverContainer;
 import web.tradeMe.MainPage;
 import web.tradeMe.ResultsPage;
 
@@ -16,6 +15,11 @@ public class TradeMeTest {
     private MainPage mainPage;
     private ResultsPage resultsPage;
 
+    @Rule
+    public BrowserWebDriverContainer chrome =
+            new BrowserWebDriverContainer()
+                    .withCapabilities(new ChromeOptions());
+
     @BeforeClass
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -23,7 +27,8 @@ public class TradeMeTest {
 
     @Before
     public void setupBrowser() {
-        driver = new ChromeDriver();
+        driver = chrome.getWebDriver();
+//        driver = new ChromeDriver();
         mainPage = new MainPage(driver);
     }
 
@@ -38,6 +43,6 @@ public class TradeMeTest {
     public void printTotal() throws Exception {
         resultsPage = mainPage.searchFor("gold");
         String totalCount = resultsPage.getTotalResultCount();
-        assertEquals("59", totalCount);
+        assertEquals("35", totalCount);
     }
 }
