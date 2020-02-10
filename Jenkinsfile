@@ -1,10 +1,10 @@
 podTemplate(label: 'java',
         containers: [
-                containerTemplate(name: 'jdk8', image: 'openjdk:8-jdk', ttyEnabled: true, command: 'cat')
+                containerTemplate(name: 'chrome', image: 'openjdk:8-jdk', ttyEnabled: true, command: 'cat')
         ]) {
     node("java"){
         checkout scm
-        container("jdk8") {
+        container("chrome") {
             stage('Test') {
                 sh './gradlew test'
             }
