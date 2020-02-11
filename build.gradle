@@ -16,3 +16,10 @@ dependencies {
                 'io.github.bonigarcia:webdrivermanager:3.3.0',
                 'junit:junit:4.12'
 }
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        showStandardStreams = true
+    }
+}
